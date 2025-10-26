@@ -1,0 +1,521 @@
+/* @import for Google Fonts is usually in the head of HTML, but including it here for completeness:
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap'); 
+*/
+
+/* ------------------ تنسيق عام للجسم (Body) ------------------ */
+body {
+    background: linear-gradient(135deg, #1a002a, #0d001a, #000000); /* خلفية داكنة وغنية */
+    font-family: 'Poppins', sans-serif; /* خط حديث وجميل */
+    color: #f0f0f0; 
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    text-align: left; 
+    overflow-x: hidden; 
+    position: relative; 
+    background-size: 400% 400%; 
+    transition: background-color 0.5s ease; 
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* تأثير توهج الخلفية العائمة: تم تعزيز الحركة */
+.background-glow {
+    position: fixed;
+    width: 350px; 
+    height: 350px; 
+    border-radius: 50%;
+    filter: blur(180px); 
+    opacity: 0.5;
+    z-index: 1;
+    animation: glowMove 20s infinite alternate ease-in-out; 
+}
+
+.background-glow.top-left {
+    background: radial-gradient(circle, #ff69b4, transparent 70%); 
+    top: -100px; 
+    left: -100px;
+}
+
+.background-glow.bottom-right {
+    background: radial-gradient(circle, #8a2be2, transparent 70%); 
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 5s; 
+}
+
+@keyframes glowMove {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(15vw, 15vh) scale(1.1); }
+    66% { transform: translate(-10vw, -10vh) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* تأثير جزيئات الخلفية (نقاط صغيرة): تم تسريع الحركة */
+.background-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particlesMove 20s linear infinite; 
+}
+
+@keyframes particlesMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 500px 500px; }
+}
+
+/* تأثير الزجاج (Glassmorphism) */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+}
+
+/* حاوية المحتوى الرئيسية */
+.container {
+    max-width: 900px; 
+    margin: 60px auto; 
+    padding: 40px;
+    position: relative;
+    z-index: 10; 
+}
+
+/* ------------------ تنسيق الصفحة الرئيسية (index.html) ------------------ */
+
+.main-page {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    padding: 20px 0 150px 0; 
+    position: relative; 
+}
+
+.main-greeting {
+    position: relative; 
+    margin-bottom: 50px;
+    margin-top: 30px;
+    display: inline-block; 
+    color: #fff;
+    font-family: 'Playfair Display', serif; 
+    font-size: 5em; 
+    padding: 18px 45px;
+    border-radius: 15px; 
+    background: linear-gradient(45deg, #4b0082, #8a2be2); 
+    box-shadow: 0 0 20px #ff69b4, 
+                0 0 60px #ff69b4, 
+                0 0 120px rgba(255, 105, 180, 0.6); 
+    z-index: 10; 
+    letter-spacing: 4px;
+    font-weight: 700;
+    transition: all 0.4s ease-in-out;
+    cursor: default;
+}
+
+.main-greeting:hover {
+    transform: scale(1.08) rotate(-2deg); 
+    box-shadow: 0 0 30px #ff69b4, 
+                0 0 80px #ff69b4, 
+                0 0 150px rgba(255, 105, 180, 0.8); 
+}
+
+.sparkle {
+    animation: sparkleEffect 1.5s infinite alternate;
+    display: inline-block;
+}
+
+@keyframes sparkleEffect {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(5deg); opacity: 1; color: #fffacd; }
+    100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+}
+
+
+.main-text-content {
+    background: transparent; 
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 40px; 
+    max-width: 800px; 
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+}
+
+.intro-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15em; 
+    color: #e0e0f0; 
+    margin-bottom: 20px;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 35px; 
+    text-align: left;
+}
+
+.intro-text i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffb6c1; 
+    font-size: 1.2em;
+    animation: iconBounce 2s infinite ease-in-out;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.2); }
+}
+
+.sub-text {
+    font-size: 2em; 
+    color: #ffb6c1; 
+    margin-top: 35px; 
+    font-weight: 700; 
+    font-family: 'Dancing Script', cursive; 
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+}
+
+
+.action-button {
+    background: linear-gradient(90deg, #ff69b4, #8a2be2); 
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 50px;
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.6);
+    transition: all 0.4s ease-in-out;
+    z-index: 10;
+    font-weight: 600;
+}
+
+.action-button:hover {
+    background: linear-gradient(90deg, #8a2be2, #ff69b4); 
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(138, 43, 226, 0.8);
+}
+
+.action-button.active-cooldown {
+    background-color: #6a1a6a;
+    color: #fff;
+    cursor: default;
+    box-shadow: 0 0 20px #80e0ff;
+    transform: scale(1);
+    opacity: 0.8;
+}
+
+
+.next-page-button {
+    background: none;
+    border: 3px solid #ffb6c1;
+    color: #ffb6c1;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    border-radius: 50px;
+    margin-top: 25px;
+    transition: all 0.3s;
+    display: inline-block; 
+    font-weight: 600;
+}
+
+.next-page-button:hover {
+    background-color: #ffb6c1;
+    color: #1a002a;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+}
+
+
+/* ------------------ القلوب التفاعلية (Heart) ------------------ */
+.heart {
+    position: fixed;
+    cursor: pointer;
+    z-index: 1; 
+    opacity: 0.5; 
+    transition: opacity 0.8s, transform 0.8s; 
+    font-size: 1.5em; 
+    text-shadow: 0 0 5px #ff69b4; 
+}
+
+.popped {
+    opacity: 0 !important;
+    transform: scale(2.5); 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out !important; 
+}
+
+.floating-heart {
+    animation: floatHeart 15s infinite linear;
+}
+
+@keyframes floatHeart {
+    0% { transform: translateY(0); opacity: 0.1; } 
+    50% { opacity: 0.5; } 
+    100% { transform: translateY(-100vh); opacity: 0; } 
+}
+
+
+/* ------------------ الرسالة السرية المتوهجة (شكل القمر) - تم تعزيز الوضوح والانتقال ------------------ */
+
+@keyframes messagePulse {
+    0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.02); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+
+.secret-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5); 
+    opacity: 0;
+    color: #fefefe; 
+    font-size: 3.5em; 
+    font-weight: 700; 
+    font-style: normal; 
+    padding: 25px 40px; 
+    border-radius: 35px; 
+    
+    /* توهج القمر الناعم والمميز */
+    text-shadow: 
+        0 0 10px #e0e0ff, 
+        0 0 25px #ffe0b2, 
+        0 0 50px rgba(255, 255, 255, 0.9); 
+
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.4), 
+        0 0 50px rgba(255, 255, 255, 0.3); 
+    
+    z-index: 200; 
+    pointer-events: none; 
+    transition: all 0.5s ease-out; /* الانتقال السلس عند الاختفاء */
+    text-align: center;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.secret-message.show {
+    opacity: 1;
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in; /* جعل الظهور سريعًا */
+    animation: messagePulse 0.6s ease-out forwards;
+}
+
+
+/* ------------------ تنسيق صفحة الرسالة (message.html) - تصميم مبدع ------------------ */
+
+.message-page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px; 
+    
+    background: radial-gradient(circle at center, #0a001a 0%, #000000 100%); 
+    overflow: hidden; 
+}
+
+.message-card {
+    background-color: rgba(15, 5, 30, 0.9); 
+    color: #f0e6ff; 
+    padding: 70px; 
+    border-radius: 30px; 
+    
+    box-shadow: 
+        0 0 50px rgba(102, 204, 255, 0.4), 
+        0 0 120px rgba(255, 153, 204, 0.4), 
+        0 20px 100px rgba(0, 0, 0, 0.95);    
+        
+    max-width: 850px;
+    margin: auto; 
+    position: relative;
+    z-index: 10;
+    
+    direction: ltr; 
+    text-align: left; 
+    
+    border: 2px solid rgba(200, 200, 255, 0.2); 
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.message-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 
+        0 0 60px rgba(102, 204, 255, 0.5), 
+        0 0 150px rgba(255, 153, 204, 0.5), 
+        0 25px 120px rgba(0, 0, 0, 1); 
+}
+
+.message-header {
+    border-bottom: 2px solid #4a405a; 
+    padding-bottom: 30px; 
+    margin-bottom: 40px; 
+}
+
+.message-card .greeting {
+    color: #b3ccff; 
+    font-size: 3.2em; 
+    font-weight: 700;
+    margin-top: 10px;
+    font-family: 'Playfair Display', serif; 
+    
+    text-shadow: 
+        0 0 15px #66ccff, 
+        0 0 30px rgba(179, 204, 255, 0.9),
+        0 0 10px rgba(255, 255, 255, 0.7); 
+    line-height: 1.2; 
+}
+
+.message-card .meta-data {
+    color: #b0b0f0; 
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.message-card .message-content p {
+    font-size: 1.2em; 
+    color: #f0e6ff; 
+    text-align: justify; 
+    margin-bottom: 1.8em;
+    line-height: 2; 
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.message-footer {
+    border-top: 2px solid #4a405a; 
+    padding-top: 30px;
+    margin-top: 40px;
+    color: #b0b0f0;
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: right; 
+}
+
+.message-card .signature {
+    color: #ff99cc; 
+    font-weight: bold;
+    font-size: 1.7em; 
+    margin-top: 15px;
+    display: block; 
+    font-family: 'Dancing Script', cursive; 
+    
+    text-shadow: 0 0 12px rgba(255, 153, 204, 0.9), 0 0 25px rgba(255, 100, 150, 0.6);
+}
+
+
+/* ------------------ تنسيق خلفية النجوم (لصفحة الرسالة) - حركات معززة ------------------ */
+.star-background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+    background: transparent; 
+}
+
+.message-star {
+    position: absolute;
+    color: #fff;
+    font-size: 0.8em; 
+    opacity: 0.8; 
+    animation: twinkle 4s infinite alternate, floatStar var(--duration) infinite linear; 
+    text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.8); 
+    transform-origin: center center; 
+}
+
+@keyframes floatStar {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
+    25% { transform: translate(5vw, 15vh) rotate(10deg); opacity: 0.6; }
+    50% { transform: translate(-10vw, 5vh) rotate(-5deg); opacity: 0.9; }
+    75% { transform: translate(10vw, -10vh) rotate(5deg); opacity: 0.7; }
+    100% { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.4; }
+}
+
+/* ------------------ استعلامات الوسائط: تنسيق شاشات الهاتف (أقل من 600 بكسل) ------------------ */
+@media (max-width: 600px) {
+    
+    .container {
+        padding: 20px 10px;
+        margin: 20px auto;
+    }
+
+    .main-greeting {
+        font-size: 3em;
+        padding: 10px 20px;
+        letter-spacing: 2px;
+    }
+    
+    .main-text-content {
+        padding: 30px 20px;
+    }
+
+    .intro-text {
+        font-size: 1em;
+        padding-left: 25px;
+    }
+    
+    .intro-text i {
+        font-size: 1em;
+    }
+
+    .sub-text {
+        font-size: 1.6em;
+    }
+
+    .action-button,
+    .next-page-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    
+    /* الرسالة السرية على الهاتف */
+    .secret-message {
+        font-size: 2em;
+        padding: 15px 25px;
+    }
+    
+    .message-card {
+        padding: 30px 15px;
+    }
+    
+    .message-card .greeting {
+        font-size: 2em; 
+    }
+    
+    .message-card .message-content p {
+        font-size: 1em;
+    }
+
+    .message-card .signature {
+        font-size: 1.3em; 
+    }
+    
+}
